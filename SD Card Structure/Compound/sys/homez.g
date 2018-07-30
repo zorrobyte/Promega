@@ -37,7 +37,7 @@ G0 Z-20 F120 S1
 ;M98 Pmachine_zendstop.g ; Set Z Endstop height
 
 ;Move bed out of way
-G1 Z25
+G0 Z25 F1500
 
 ; ============ Post-Homing ==============
 
