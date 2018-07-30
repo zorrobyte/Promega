@@ -14,26 +14,30 @@ G29 S2 ; Do it twice because once just isn't enough
 ; Switch to Origin Tool
 T0
 
+; Center XY for Z-Probe
+G1 X200 Y200 F1500 S1
+
 ; Relative positioning
 G91
-
-; Provide Z height clearance
-G1 Z10 F750 S1
 
 
 ; ============ HOME Z ==============
 
+M98 Pmachine_zprobe.g   ; Set Z Probe distance
+
 ; Rapid Z until limit switch triggers
-G0 Z450 F1500 S1
+G0 Z-450 F1500 S1
 
 ; Back off to release limit switch
-G0 Z-15 F1500
+G0 Z15 F1500
 
 ; Slow advance to trigger limit switch
-G0 Z20 F120 S1
+G0 Z-20 F120 S1
 
-M98 Pmachine_zendstop.g ; Set Z Endstop height
-M98 Pmachine_zprobe.g   ; Set Z Probe distance
+;M98 Pmachine_zendstop.g ; Set Z Endstop height
+
+;Move bed out of way
+G1 Z25
 
 ; ============ Post-Homing ==============
 

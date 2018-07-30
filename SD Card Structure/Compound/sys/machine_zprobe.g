@@ -24,12 +24,9 @@
 ; 10. Note the Z value in the Web UI and update it in the G31 Z parameter below
 ; 11. Put the Z probe away if necessary
 
-; Toggle by uncommenting, depending on preference
-; M558 P1 X0 Y0 Z1 H5 F120 T5000  ; Set Z probe type -- Enable IR_PROBE
-M558 P4 I1 X0 Y0 Z1 H5 F100 T5000 ; Set Z probe type -- Enable LIMIT SWITCH
-
-; Remember to update your Z-probe offset with the Z parameter below
-; Follow this guide or the instructions above: http://promega.printm3d.com/books/user-manual/page/bed-leveling-probing#bkmrk-the-limit-switch-pro
-; G31 P450 X30.4 Y30.7 Z10 ; Set Z probe (IR) trigger value and offset
-; G31 P999 X-42 Y31 Z15.0  ; Set Z probe (Metrol switch) trigger value, offset
-G31 P999 X-43 Y25 Z0.925   ; Set Z probe (limit switch) trigger value, offset
+; Use this if you have a IR Probe
+; Z-Probe
+M574 Z2 S2                                         ; Set endstops controlled by probe
+M558 P1 H5 F120 T6000                              ; Set Z probe type to unmodulated and the dive height + speeds
+G31 P500 X30.4 Y30.7 Z0.327                            ; Set Z probe trigger value, offset and trigger height
+M557 X15:368 Y15:373 S20                           ; Define mesh grid

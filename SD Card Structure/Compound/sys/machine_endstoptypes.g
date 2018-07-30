@@ -8,5 +8,5 @@
 ;M574 X2 Y2 S0 ; Set xy end-stops types (S0 is active low, applied to XY)
 ;M574 Z2 S1 ; Set z end-stops types (S1 is active high, applied to Z)
 
-; Use this if you have a mechanical Z endstop
-M574 X2 Y2 Z2 S0 ; Set xy end-stops types (S0 is active low, applied to XY)
+; Use this if you have a mechanical XY endstop (and an IR Probe)
+M574 X2 Y2 S0 ; Set xy end-stops types (S0 is active low, applied to XY)
